@@ -1,5 +1,11 @@
+
+#exclude
 node_modules
-
 .env
-
 yarn.lock
+
+#uploads
+.jpg
+.jpeg
+.png
+.gif
