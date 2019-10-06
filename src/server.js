@@ -6,12 +6,13 @@ const dotenv = require('dotenv').config();
 
 const USERMONGO = process.env.USERMONGO;
 const PASSMONGO = process.env.PASSMONGO;
+const DBNAME = process.env.DBNAME;
 
 
 const app = express();
 
 mongoose
-.connect(`mongodb+srv://${USERMONGO}:${PASSMONGO}@clustermiguelote-gb3nk.mongodb.net/omnistack?retryWrites=true&w=majority`,
+.connect(`mongodb+srv://${USERMONGO}:${PASSMONGO}@${DBNAME}?retryWrites=true&w=majority`,
 { useNewUrlParser: true, useUnifiedTopology: true })
 
 app.use(cors({origin:'http://localhost:3000'}));
