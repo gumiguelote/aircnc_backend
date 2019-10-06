@@ -2,12 +2,16 @@ const express = require('express');
 const routes = require('./routes');
 const mongoose = require('mongoose');
 const cors = require('cors');
+const dotenv = require('dotenv').config();
+
+const USERMONGO = process.env.USERMONGO;
+const PASSMONGO = process.env.PASSMONGO;
 
 
 const app = express();
 
 mongoose
-.connect('mongodb+srv://usrmongo:usrmongo@clustermiguelote-gb3nk.mongodb.net/omnistack?retryWrites=true&w=majority',
+.connect(`mongodb+srv://${USERMONGO}:${PASSMONGO}@clustermiguelote-gb3nk.mongodb.net/omnistack?retryWrites=true&w=majority`,
 { useNewUrlParser: true, useUnifiedTopology: true })
 
 app.use(cors({origin:'http://localhost:3000'}));
